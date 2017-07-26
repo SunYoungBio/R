@@ -1,0 +1,17 @@
+1.下载miniconda https://conda.io/miniconda.html Linux Python2.7
+
+cd src
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda2-latest-Linux-x86_64.sh
+
+根据提示，最后会安装到~/miniconda2下。
+2.添加bioconda channel, 目前还没有国内源
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+conda config --add channels bioconda
+conda config --set show_channel_urls yes
+
+3.用conda安装软件sratoolkit,fastqc,hisat2,samtools,htseq-count, 与网络有着密切的关系
+查询可供安装的软件, https://bioconda.github.io/recipes.html#recipes
