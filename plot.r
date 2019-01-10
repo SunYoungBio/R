@@ -41,14 +41,5 @@ if(nn == 2){
              xaxs='i', yaxs='i', lwd=.75)
 }
 
-xmin<-par('usr')[1];
-xmax<-par('usr')[2];
-ymin<-par('usr')[3];
-ymax<-par('usr')[4];
-chw<-par()$cxy[1]
-
-axis(1,lwd=NA,tick=T,lwd.ticks=.5,labels=F)
-axis(2,lwd=NA,tick=T,lwd.ticks=.5,labels=F)
-axis(3,lwd=NA,tick=T,lwd.ticks=.5,labels=F)
-axis(4,lwd=NA,tick=T,lwd.ticks=.5,labels=F)
+dev.off()
 
