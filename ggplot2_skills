@@ -1,0 +1,13 @@
+ggplot(dat, aes(x=BIN_START, y=N_VARIANTS))+   #特别注意x,y的赋值方式，不要写成x=dat$BIN_START,否则画出的图坐标有问题
+	  geom_bar(position=position_dodge(),     #这个参数可以控制柱子的横坐标位置
+    stat="identity",    #柱状图的形状，比如一个位置x，两个y值，可画成堆积图，或者两个柱子
+    width = 0.1,color="black")+    
+	  facet_grid(CHROM~., scales = "free_x",space = "free_x")+    #分面
+	  theme(panel.grid =element_blank())+   #去除背景格子
+	  theme(axis.text.x = element_blank())+   #去除x,y轴坐标值
+	  theme(axis.ticks = element_blank())+    #去除x,y轴坐标柱子
+	  theme(panel.background = element_blank())+    #去除背景灰色
+	  ggtitle("Fst between Indica and Japonica")+   
+	  scale_x_continuous(expand = c(0, 0))+scale_y_continuous(expand = c(0, 0))+    #设置x,y轴坐标从0开始
+    scale_y_continuous(breaks=seq(0,0.8,0.2))+    #设置y轴坐标范围及间距
+    labs(x="",y="")   #设置x,y轴名称
