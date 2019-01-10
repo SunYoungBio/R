@@ -4,7 +4,7 @@ ggplot(dat, aes(x=BIN_START, y=N_VARIANTS))+   #特别注意x,y的赋值方式�
 	width = 0.1,color="black")+    
 	facet_grid(CHROM~., scales = "free_x",space = "free_x")+    #分面
 	theme(panel.grid =element_blank())+   #去除背景格子
-	theme(axis.text.x = element_blank())+   #去除x,y轴坐标值
+  theme(axis.text.x = element_blank())+   #去除x,y轴坐标值
 	theme(axis.ticks = element_blank())+    #去除x,y轴坐标柱子
 	theme(panel.background = element_blank())+    #去除背景灰色
 	ggtitle("Fst between Indica and Japonica")+   
