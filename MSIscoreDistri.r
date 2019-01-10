@@ -35,7 +35,8 @@ if(nn == 2){
     pdf(file='./MSI.pdf')
     #pdf(file=args[2])
     par.lend=par()$lend;par(tck=0.01, lend=1, xpd=T)
-    #plot(c(1:xs), m$score, main='MSI score', xlab='Sample group', ylab="MSI score(%)", col="red", pch=19, spacing=1, xaxs='i', yaxs='i')
+    #plot(c(1:xs), m$score, main='MSI score', xlab='Sample group', ylab="MSI score(%)", 
+    #col="red", pch=19, spacing=1, xaxs='i', yaxs='i')
     beeswarm(m$score, data=m, method='swarm', pch=16, xlab='Sample group', ylab='MSI score(%)', 
              main='MSI score distribution', cex=0.6, las=0, do.plot=T, add=F, at=xs, col=cols[1], spacing=0.9, 
              xaxs='i', yaxs='i', lwd=.75)
