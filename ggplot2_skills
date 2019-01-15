@@ -35,5 +35,6 @@ ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar)) +
 #修改默认排序：
 obj<-factor(obj,levels=c(“e”,”f”,”b”,”c”,”d”,”a”)) 
 --------------------- 
-
+#存储文件图片：
+ggsave( file = "mtcars_plot.png", width = 5, height = 6, type = "cairo", dpi = 600) 
 ---------------------
