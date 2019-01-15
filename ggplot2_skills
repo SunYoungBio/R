@@ -1,3 +1,4 @@
+#ggplot界面总结：
 ggplot(dat, aes(x=BIN_START, y=N_VARIANTS))+   #特别注意x,y的赋值方式，不要写成x=dat$BIN_START,否则画出的图坐标有问题
 	geom_bar(position=position_dodge(),     #这个参数可以控制柱子的横坐标位置
 	stat="identity",    #柱状图的形状，比如一个位置x，两个y值，可画成堆积图，或者两个柱子
@@ -11,3 +12,24 @@ ggplot(dat, aes(x=BIN_START, y=N_VARIANTS))+   #特别注意x,y的赋值方式�
 	scale_x_continuous(expand = c(0, 0))+scale_y_continuous(expand = c(0, 0))+    #设置x,y轴坐标从0开始
 	scale_y_continuous(breaks=seq(0,0.8,0.2))+    #设置y轴坐标范围及间距
 	labs(x="",y="")   #设置x,y轴名称
+---------------------
+#geom_bar总结：
+ggplot(BOD, aes(x=Time, y=demand)) + 	#直接赋值，不做因子转化，即连续型变量，与上面position=position_dodge()类似？
+	geom_bar(stat="identity")
+ggplot(BOD, aes(x=factor(Time), y=demand)) + 	#变量进行因子转化
+	geom_bar(stat="identity",	#identity意味着把y当做值去输入，如果改成bin，就会计算y出现的频数
+	fill="lightblue", 
+	colour="black",
+	position="dodge")	#dodge意味是各组是左右分布而不是上下重叠
+ggplot(cabbage_exp,aes(x=Date, y=Weight, 
+	fill=Cultivar))+
+	geom_bar(stat='identity')
+csub <- subset(climate, Source=="Berkeley" & Year >= 1900) 
+csub$pos <- csub$Anomaly10y >= 0 	#pos变量是个布尔变量，值为T or F 
+ggplot(csub, aes(x=Year, y=Anomaly10y, fill=pos)) +
+	geom_bar(stat="identity", position="identity")	#position="identity"是为了关闭负值直方图没有定义的警告
+--------------------- 
+
+--------------------- 
+
+---------------------
