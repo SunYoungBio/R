@@ -1,6 +1,6 @@
 #ggplot界面总结：
 ggplot(dat, aes(x=BIN_START, y=N_VARIANTS))+   #特别注意x,y的赋值方式，不要写成x=dat$BIN_START,否则画出的图坐标有问题
-	geom_bar(position=position_dodge(),     #这个参数可以控制柱子的横坐标位置
+	geom_bar(position=position_dodge(),     #这个参数是否必须？？？
 	stat="identity",    #柱状图的形状，比如一个位置x，两个y值，可画成堆积图，或者两个柱子
 	width = 0.1,color="black")+    
 	facet_grid(CHROM~., scales = "free_x",space = "free_x")+    #分面
@@ -28,8 +28,12 @@ csub <- subset(climate, Source=="Berkeley" & Year >= 1900)
 csub$pos <- csub$Anomaly10y >= 0 	#pos变量是个布尔变量，值为T or F 
 ggplot(csub, aes(x=Year, y=Anomaly10y, fill=pos)) +
 	geom_bar(stat="identity", position="identity")	#position="identity"是为了关闭负值直方图没有定义的警告
+ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar)) +
+	geom_bar(stat="identity", width=0.5, 
+		position=position_dodge(0.6))#值越大越离得远
 --------------------- 
-
+#修改默认排序：
+obj<-factor(obj,levels=c(“e”,”f”,”b”,”c”,”d”,”a”)) 
 --------------------- 
 
 ---------------------
